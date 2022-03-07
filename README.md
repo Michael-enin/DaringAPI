@@ -1,0 +1,1 @@
+# Android-Multifunctional-Language-barrier-Resolver
