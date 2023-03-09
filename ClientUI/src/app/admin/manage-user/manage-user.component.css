@@ -1,0 +1,25 @@
+
+.flatTable{  
+    width:100%;
+    min-width:500px;
+    border-collapse:collapse;  
+    font-weight:bold;
+    color:darkGrey;
+}
+.headingTr{
+    height:30px;
+    background:sRLight;
+    color:offWhite; 
+    font-size:14pt; 
+    text-transform: uppercase;
+}  
+tr{
+    height:50px;
+    background:darkBg;
+    border-bottom:rgba(0,0,0,.05) 1px solid;
+}
+td{    
+    box-sizing:border-box;
+    
+    
+}

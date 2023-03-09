@@ -1,0 +1,19 @@
+<div class="container mt-5" >
+    <div  *ngIf="!registerMode" style="text-align: center;">
+        <h1>Get Your Discovery</h1>
+        <p>your view description</p>
+        <div class="text-center">
+            <button 
+                    (click)="registerToggle()" 
+                     class="btn btn-primary btn-lg mr-2">Register</button>
+            <button class="btn btn-info btn-lg ">More Discovery</button>
+        </div>
+    </div>
+    <div *ngIf="registerMode" class="container">
+        <!-- 'cancelRegister' is the property as an event from the child   -->
+                <!-- <app-register [usersFromHomeComponent]="users" (cancelRegister)="cancelRegisterMode($event)"></app-register> -->
+                <app-register  (cancelRegister)="cancelRegisterMode($event)"></app-register>>
+           
+    </div>
+</div>
+  

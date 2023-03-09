@@ -1,0 +1,16 @@
+<div class="form-outline flex-fill mb-0">
+    <input 
+        [class.is-invalid]="ngControl.touched && ngControl.invalid" 
+        type={{type}} 
+        id="form3Example4c" 
+        class="form-control"        
+        [formControl]?="ngControl.control"
+        placeholder={{label}}
+    />
+    <div *ngIf="ngControl.control?.errors?.required"class="invalid-feedback">Please Enter Your Confirm {{label}}</div>
+    <div *ngIf="ngControl.control?.errors?.minlength"class="invalid-feedback">{{label}} Must not be less than {{ngControl.control?.errors?.minlength['requiredLength']}}</div>
+    <div *ngIf="ngControl.control?.errors?.maxlength"class="invalid-feedback">{{label}} Must not be more than {{ngControl.control?.errors?.maxlength['requiredLength']}}</div>
+    <div *ngIf="ngControl.control?.errors?.isMatching"class="invalid-feedback">Password Doese not Match</div>
+    
+   
+  </div>

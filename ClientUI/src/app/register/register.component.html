@@ -1,0 +1,176 @@
+
+            <div class="card-body p-md-5">
+              <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+                  <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
+                  <!-- <form #registerForm="ngForm" (ngSubmit)="register()" class="mx-1 mx-md-4" outocomplete="off">  -->
+                    <form [formGroup]='registerForm' (ngSubmit)="registerForm.valid && register()" class="mx-1 mx-md-4" outocomplete="off"> 
+                       <!-- commented for advanced form -->
+                      
+                    <div class="d-flex flex-row align-items-center mb-4">                     
+                      <div class="form-outline flex-fill mb-0">
+                         <input 
+                            [ngClass]="{'is-invalid':registerForm.get('username')?.errors && registerForm.get('username')?.touched}"    
+                         type="text" 
+                         id="form3Example1c" 
+                         class="form-control"
+                         formControlName='username'
+                         placeholder="User Name"
+                          />
+                          <div class="invalid-feedback">Please Enter Your Name</div>
+                       
+                      </div>
+                      
+                    </div> 
+
+
+                    <div class="d-flex flex-row align-items-center mb-4">                     
+                      <div class="form-outline flex-fill mb-0">
+                      
+                         <input 
+                            [ngClass]="{'is-invalid':registerForm.get('knownAs')?.errors && registerForm.get('knownAs')?.touched}"    
+                         type="text" 
+                         id="form3Example1c" 
+                         class="form-control"
+                         formControlName='knownAs'
+                         placeholder="Known As"
+                          />
+                          <div class="invalid-feedback">Please Enter Your Nick Name</div>
+                       
+                      </div>
+                      
+                    </div> 
+                    <div class="d-flex flex-row align-items-center mb-4">                    
+                      <div class="form-outline flex-fill mb-0">
+                      
+                         <input 
+                            [ngClass]="{'is-invalid':registerForm.get('birthDate')?.errors && registerForm.get('birthDate')?.touched}"    
+                         type="date" 
+                         id="form3Example1c" 
+                         class="form-control"
+                         formControlName='birthDate'
+                         placeholder="Birth Date"
+                          />
+                          <div class="invalid-feedback">Please Enter Your Birth Date</div>
+                      
+                      </div>
+                      
+                    </div> 
+                  <!-- <app-date-input></app-date-input> -->
+                    <div class="d-flex flex-row align-items-center mb-4">                      
+                      <div class="form-outline flex-fill mb-0">
+                        <label class="control-label" style="margin-right: 15px;" ><strong>Gender</strong></label>
+                      <label class="radio-inline"></label>
+                         
+                          <input type="radio" value="male" formControlName='gender'>Male
+                          <label class="radio-inline"></label>
+                          <input type="radio" value="female" formControlName='gender' class="ml-3">Female
+                      </div>
+                      
+                    </div> 
+                    <div class="d-flex flex-row align-items-center mb-4">                      
+                      <div class="form-outline flex-fill mb-0">
+                      
+                         <input 
+                            [ngClass]="{'is-invalid':registerForm.get('city')?.errors && registerForm.get('city')?.touched}"    
+                         type="text" 
+                         id="form3Example1c" 
+                         class="form-control"
+                         formControlName='city'
+                         placeholder="City"
+                          />
+                          <div class="invalid-feedback">Please Enter city</div>
+                        
+                      </div>
+                      
+                    </div> 
+                    <div class="d-flex flex-row align-items-center mb-4">                     
+                      <div class="form-outline flex-fill mb-0">
+                      
+                         <input 
+                            [ngClass]="{'is-invalid':registerForm.get('country')?.errors && registerForm.get('country')?.touched}"    
+                         type="text" 
+                         id="form3Example1c" 
+                         class="form-control"
+                         formControlName='country'
+                         placeholder="Country"
+                          />
+                          <div class="invalid-feedback">Please Enter Country </div>
+                       
+                      </div>
+                      
+                    </div> 
+                        <!-- <div class="form-group">
+                            <label>Specify Your Life Time Model</label>
+                            <select class="form-control">
+                            <option *ngFor="let usr of usersFromHomeComponent" [value]="usr.name">{{usr.name}}</option>
+                            </select>
+                        </div>
+                           <!--(1)   commented as there is better way of creating form -->
+                     <div class="d-flex flex-row align-items-center mb-4">                      
+                      <div class="form-outline flex-fill mb-0">
+                        <input 
+                        [ngClass]="{'is-invalid':registerForm.get('password')?.errors && registerForm.get('password')?.touched}"
+                            type="password" 
+                            id="form3Example4c" 
+                            class="form-control" 
+                            
+                            formControlName='password'
+                            placeholder="Password"
+                        />
+                        <div *ngIf="registerForm.get('password')?.hasError('required')" 
+                              class="invalid-feedback">PLease Enter Your Password</div>
+                        <div *ngIf="registerForm.get('password')?.hasError('minlength')" 
+                              class="invalid-feedback">Password must not be less than 4 chracters</div>
+                        <div *ngIf="registerForm.get('password')?.hasError('maxlength')" 
+                              class="invalid-feedback">Password must not be more than 8 chracters</div>
+                        
+                      </div>
+                    </div>
+                    <div class="d-flex flex-row align-items-center mb-4">                      
+                      <div class="form-outline flex-fill mb-0">
+                        <input 
+                        [ngClass]="{'is-invalid':registerForm.get('comfirmPassword')?.errors && registerForm.get('comfirmPassword')?.touched}"
+                           
+                            type="password" 
+                            id="form3Example4c" 
+                            class="form-control" 
+                            
+                            formControlName='comfirmPassword'
+                            placeholder="Comfirm Password"
+                        />
+                        <div *ngIf="registerForm.get('comfirmPassword')?.hasError('required')" 
+                        class="invalid-feedback">Please Enter Your Confirm Password</div>
+                        <div *ngIf="registerForm.get('comfirmPassword')?.hasError('isMatching')" 
+                        class="invalid-feedback">Your Confirm Password Must Match Your Password</div>
+                       
+                      </div>
+                   
+                   
+                   
+                    </div> 
+                            <!-- (1)  end-->
+                            
+  <!-- Client Side Error Reports -->
+  <div class="row mt-5" *ngIf="validationErrors.length>0">
+    <ul class="text-danger">
+        <li *ngFor="let error of validationErrors">{{error}}</li>
+    </ul>
+</div>
+                    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                      <button [disabled]='registerForm.invalid' type="submit" class="btn btn-primary btn-lg mr-2" >Register</button>
+                      <button class="btn btn-info btn-lg" (click)="cancelRegistration()">Cancel</button>
+                    </div>
+                  </form>
+                  <p>Form Valid: {{registerForm.value | json}}</p>
+                  <p>Form Status: {{registerForm.status | json}}</p>
+                </div>
+              
+              </div>
+             
+            </div>
+          
+     
+
+    
+  

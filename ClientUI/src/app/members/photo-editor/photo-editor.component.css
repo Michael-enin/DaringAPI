@@ -1,0 +1,17 @@
+img.img-thumbnail{
+    height:100px;
+    width:100px !important;
+    margin-bottom:2px;
+    }
+    .nv-file-over{
+    border:dotted 3px darkgreen;
+    }
+    input[type=file]{
+    color:transparent;
+    }
+    .card.w-40{
+        margin:0 auto;
+        float: none;
+        margin-bottom: 10px;
+
+    }

@@ -1,0 +1,85 @@
+.card {
+    height: 500px;
+    
+    background:url(/assets/images/pattern5.jpg);
+}
+.chatbox{
+position: relative;
+width: 100%;
+height: calc(100% - 120px);
+padding: 5px;
+overflow-y: auto;
+}
+.message{
+    display:flex;
+    width:100%;
+    margin:50x 0;
+}
+.message p{
+    position: relative;
+    right: 0;
+    text-align: right;
+    max-width: 65%;
+    padding: 12px;
+    background: #dcf8c6;
+    border-radius: 10px;
+}
+.message p::before{
+    content:'';
+    position:absolute;
+    top:0;
+    right:-12px;
+    width:20px;
+    height:20px;
+    background: linear-gradient(135deg, #dcf8c6 0%,  #dcf8c6 50%, transparent 50%, transparent)
+}
+.message p span{
+    display: block;
+    margin-top: 5px;
+    font-size: 0.85em;
+    opacity: 0.5;
+}
+.myMessage{
+    justify-content: flex-end;
+}
+.senderMessage{
+    justify-content: flex-start;
+}
+.senderMessage p{
+    background: #fff;
+    text-align: left;
+}
+.message.senderMessage p::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:-12px;
+    width:20px;
+    height:20px;
+    background: linear-gradient(225deg, #fff 0%,  #fff 50%, transparent 50%, transparent)
+}
+.chat {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.chat li {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px dotted #B3A9A9;
+}
+
+/* .rounded-circle {
+    max-height: 50px;
+} */
+.rounded-circle{
+    max-height: 40;
+    width: 100%;
+}
+
+/* 
+Custom style for messagi
+*/
+
+

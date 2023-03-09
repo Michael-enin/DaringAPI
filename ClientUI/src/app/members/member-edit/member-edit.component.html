@@ -1,0 +1,102 @@
+<!-- <h3 *ngIf="_member">{{_member.knownAs}}</h3>
+<h3>This Is Member Edit Page</h3> -->
+<div class="col-4">
+    <h1>Personal Profile </h1>
+</div>
+<div class="col-8">
+    <div class="alert alert-info">
+        <p><strong>Information:</strong>WhenEver You Make changes, Please Save Changes</p>
+    </div>
+</div>
+
+<div class="row" *ngIf="_member">
+    
+    <h3  style="text-align: center;" *ngIf="_member">{{_member.knownAs}}
+    <span class="badge rounded-pill bg-success">.</span>
+    </h3>
+    <div class="col-8" style="background-color: rgb(240, 240, 240);">
+        <!-- <nav>
+            
+            <ul id="nav-tab" role="tablist">
+                <li class="nav-item"><a class="nav-link" id="nav-home-tab" data-bs-toggle="tab" role="tab" aria-controls="nav-home" aria-selected="true">About  </a></li>
+                <li class="nav-item"><a class="nav-link" >Posts  </a></li>
+                <li class="nav-item"><a class="nav-link" >Public Photos  </a></li>
+                <li class="nav-item"><a class="nav-link" >Personal Graph  </a></li>
+            </ul>
+    
+      </nav> -->
+      <div>
+        <tabset>
+          <tab heading='About  {{_member.knownAs}}'>
+             <form #editForm="ngForm" id="editForm" (ngSubmit)="updateProfile()">
+                <h3>Description</h3>
+                <textarea class="form-control" [(ngModel)]="_member.introduction" name="introduction" rows="4"></textarea>
+                <h3 class="mt-2">Looking For</h3>
+                <textarea class="form-control" [(ngModel)]="_member.lookingFor" name="lookingFor" rows="4"></textarea>
+                <h3 class="mt-2">Interests</h3>
+                <textarea class="form-control" [(ngModel)]="_member.interests" name="interests" rows="4"></textarea>
+                <h3>Location Information:</h3>
+                <div class="form-inline">
+                    <label for="city">City</label>
+                    <input [(ngModel)]="_member.city" type="text" name="city" class="form-control mx-2">
+                    <label for="city">Country</label>
+                    <input [(ngModel)]="_member.country" type="text" name="country" class="form-control mx-2">
+                </div>
+             </form>
+          </tab>
+          <tab heading='Edit Your Photo'>
+               <!-- <p>Photo edit here!</p> -->
+               <app-photo-editor [member]="_member"></app-photo-editor>
+               <!-- <app-photo-editor [member]="_member"></app-photo-editor> -->
+           
+           </tab>
+           <tab heading='Social Graphs'>
+             <h2>Other Socail Connectivity</h2>
+             <app-facebook></app-facebook>
+        
+          </tab>
+        </tabset>
+      </div>
+      <div class="col-6 col-md-4 align-self-center">
+        <button 
+            [disabled]="!editForm.dirty" 
+            form="editForm"
+            type="submit" 
+            class="btn btn-success btn-block">Save Changes</button>       
+      </div>
+                  
+        
+
+    </div>
+    <div class="col-4" style="background-color: darkgray;">
+        <div class="card">
+            <img 
+            src="{{_member.photoUrl || './assets/images/noUser.jpg'}}" 
+            alt="{{_member.knownAs}}" 
+            class="card-img-top img-thumbnail">
+            <div class="card-body">
+                <div>
+                    <strong>Location:</strong>
+                    <p>{{_member.city}}, {{_member.country}}</p>
+                </div>
+                <div>
+                    <strong>Age:</strong>
+                    <p>{{_member.age}}</p>
+                </div>
+                <div>
+                    <strong>Joined Time:</strong>
+                    <p>{{_member.created | date: 'dd MMMM yyyy'}}</p>
+                </div>
+                <div>
+                    <strong>Last Active Time:</strong>
+                    <p>{{_member.lastActive | timeago}}</p>
+                </div>
+               
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+

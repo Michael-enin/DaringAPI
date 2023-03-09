@@ -1,0 +1,72 @@
+
+<div class="card">
+    <div class="chatbox">
+        <h3></h3>
+        <div *ngIf="(messageService.messageThread$ | async)?.length===0">
+            No messages found yet!
+        </div>
+        <ul *ngIf="(messageService.messageThread$ | async).length > 0">
+               <li *ngFor="let message of (messageService.messageThread$ | async)" class="chat">             
+                  <div class="message senderMessage" >
+                        <!-- <div class="img_cont_msg" >
+                            <img src="{{message.senderPhotoUrl || './assets/images/noUser.jpg'}}" 
+                                class="rounded-circle user_img_msg">
+                        </div> -->
+                        <!-- <div class="img_cont_msg" *ngIf="userName === message.senderUserName" > 
+                            <img src="{{message.senderPhotoUrl || './assets/images/noUser.jpg'}}" 
+                                class="rounded-circle user_img_msg">
+                        </div>  -->
+                        <!-- <div class="msg_cotainer_send" *ngIf="userName === message.senderUserName && userName !==message.recipientUserName"> -->
+                            <p *ngIf="userName === message.senderUserName && userName !==message.recipientUserName">{{message.content }}
+                                <span class="text-danger msg_time" *ngIf="!message.dateRead">[Not Read]</span>                          
+                                <span class="time-right" *ngIf="message.dateRead"> Seen {{message.dateRead | timeago}} </span> 
+                            </p>
+                                                              
+                                                               
+                                <!-- <span class="fa fa-clock-o msg_time">{{message.messageSentTime | timeago}}</span> -->
+                    
+                        <!-- </div> -->
+                        
+                    </div>
+                    <div class="message myMessage" *ngIf="userName===message.recipientUserName && userName !== message.senderUserName">
+                        
+                            <p>{{message.content }}
+                                <span class="fa fa-clock-o msg_time">{{message.messageSentTime | timeago}}</span>            
+                               
+                            </p>  
+                        
+                        <!-- <div class="img_cont_msg">
+                            <img src="{{message.senderPhotoUrl || './assets/images/noUser.jpg'}}" 
+                                 class="rounded-circle user_img_msg">
+                        </div> -->
+                    </div>
+                  
+                </li>
+        </ul>
+        <div *ngIf="(accountService.currentUser$ | async) as user">
+            <form #messageForm="ngForm" (ngSubmit) = "sendMessage()" autocomplete="off">
+                <div class="input-group">
+                    <input 
+                            name ="messageContent"
+                            required
+                            [(ngModel)]="messageContent"                  
+                            type="text" 
+                            class="form-control input-sm" 
+                            placeholder="send your messaged">
+                    <div class="input-group-append">
+                        <button 
+                                [disabled]="messageForm.invalid"  
+                                class="btn btn-primary" 
+                                type="submit">Send                      
+                        </button>
+    
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+  
+
+    <!-- custom end -->
+</div>
+

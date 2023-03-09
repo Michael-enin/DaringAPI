@@ -1,0 +1,41 @@
+
+:host{
+    .mat-icon{
+        vertical-align: middle;
+        margin-right: 20px;
+    }
+}
+.profile-card{
+    padding: 0 20px 20px 20px;
+    text-align: center;
+}
+img{
+    
+    object-fit: cover;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+}
+.searchBox {
+    padding: 0 !important;
+    margin: 0 !important;
+    height: 60px;
+    width: 100%;
+  }
+  .searchBox-inner {
+    height: 100%;
+    width: 100%;
+    padding: 10px !important;
+    background-color: #fbfbfb;
+  }
+//   .searchBox-inner input:focus {
+//     outline: none;
+//     border: none;
+//     box-shadow: none;
+//   }
+
+
+
+
+
+

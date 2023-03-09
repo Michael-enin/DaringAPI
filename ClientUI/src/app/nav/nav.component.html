@@ -1,0 +1,101 @@
+<mat-toolbar color='primary'>
+  <mat-toolbar-row>
+    <button mat-icon-button (click)="toggleSideBar()">
+      <mat-icon>menu</mat-icon>
+   </button>
+   <span><a class="navbar-brand text-white display-2" routerLink="/" routerLinkActive="active">Amuziment Application </a></span>
+      
+      <div fxFlex fxLayout = "row" fxLayoutAlign="flex-end" >
+     
+     <ul fxLayout="row" fxLayoutGap="20px" *ngIf="accountService.currentUser$ | async">
+          
+
+              <li class="nav-item ">
+                <a class="nav-link text-white" routerLink="/members" routerLinkActive="active">Adults</a>
+              </li>
+              <li *appHasRole='["Admin", "Moderator"]' class="nav-item">
+                <a class="nav-link" routerLink='/admin' routerLinkActive="active">Admin</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" routerLink="/list" routerLinkActive="active">Collection</a>
+              </li> 
+              <li class="nav-item">
+                <a class="nav-link text-white" routerLink="/messages" routerLinkActive="active">Testmony</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" routerLink="/error" routerLinkActive="active">Error</a>
+              </li>  
+              <li>
+                <button mat-icon-button>
+                  <mat-icon>settings</mat-icon> 
+                </button>
+              </li>
+              <li>
+                <button mat-icon-button>
+                    <mat-icon>help outline</mat-icon> 
+                </button> 
+            </li>
+            <li>
+              <button mat-button [matMenuTriggerFor]="menu">
+                  <mat-icon>person outline</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu">
+                
+                <button mat-menu-item>
+                  <mat-icon>edit</mat-icon>
+                  <a  routerLink="/member/edit">Edit Profile</a>
+                </button>
+                <button mat-menu-item>
+                    <mat-icon>exit_to_app</mat-icon>                   
+                    <a (click)="logout()">Sign Out</a>
+                </button>
+              </mat-menu>
+          </li> 
+            <!-- <li class="nav-item">
+               <a class="nav-link" (click)="logout()">Sign Out</a>
+            </li> -->
+        
+        </ul> 
+   
+        <!-- <div *ngIf="(accountService.currentUser$ | async) as user" class="dropdown" dropdown>
+          <img src="{{user.photoUrl || './assets/images/noUser.jpg'}}" alt="{{user.userName}}">
+          <a style="cursor: pointer;" class="dropdown-toggle text-light ml-2" dropdownToggle >Welcome {{user.knownAs || user.userName | titlecase}}</a>
+             <div class="dropdown-menu mt-3" *dropdownMenu>             
+               <a  class="dropdown-item" routerLink="/member/edit">Edit Profile</a>
+              <div class="dropdown-divider"></div>            
+              <a class="dropdown-item" (click)="logout()">Log Out</a>
+            </div>
+        </div>  -->
+     
+        <!-- <div *ngIf="accountService.currentUser | async" class="dropdown" dropdown>
+          <a style="cursor: pointer;" class="dropdown-toggle text-light" dropdownToggle >Welcome User</a>
+          <ul class="dropdown-menu">
+              <li><a style="cursor: pointer;" class="dropdown-item" role="button">Edit Profile</a></li>
+                 <div class="dropdown-divider"></div>            
+              <li><a class="dropdown-item" (click)="logout()">Log Out</a></li>
+
+              
+          </ul>
+        </div>       -->
+         <form  *ngIf="(accountService.currentUser$ | async)===null" #formElem="ngForm" class="form-inline mt-2 mt-md-0" (ngSubmit)="login()" outocomplete="false">
+          <input
+          name="username"
+          [(ngModel)]="model.username"
+            class="form-control mr-sm-2"
+            type="search" 
+            placeholder="UserName">
+          <input 
+            name="password"
+            [(ngModel)]="model.password"
+            class="form-control mr-sm-2" 
+            type="search" 
+            placeholder="Password">
+          <button mat-menu-item type="submit" >
+               <mat-icon>login</mat-icon>
+              <a>Login</a>
+          </button>
+        </form>
+      
+      </div>
+    </mat-toolbar-row>
+</mat-toolbar>
