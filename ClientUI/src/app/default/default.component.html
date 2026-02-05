@@ -1,0 +1,16 @@
+<!-- <p>default works!</p> -->
+<!-- <app-header (toggleSideBarEvent) = "toggleDefaultSideBar($event)" ></app-header> -->
+
+<app-nav 
+    (toggleSideBarEvent) = "toggleDefaultSideBar($event)">
+
+</app-nav>
+    <mat-drawer-container>
+        <mat-drawer mode="side" [opened]="sideBarOpened">
+            <app-sidebar ></app-sidebar>
+        </mat-drawer>
+        <mat-drawer-content>
+            <router-outlet></router-outlet>
+        </mat-drawer-content>
+</mat-drawer-container>
+

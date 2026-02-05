@@ -1,0 +1,68 @@
+
+<mat-nav-list>
+    <div class="profile-card" *ngIf="(accountService.currentUser$ | async) as user">
+        <div class="header" >
+            <h2>{{user.knownAs}}! </h2>
+        </div>
+        <img src="{{user.photoUrl ||'./assets/images/noUser.jpg'}}" alt="">
+    </div>
+    
+    <div class="row searchBox">
+      <div class="col-sm-12 searchBox-inner">
+        <div class="form-group has-feedback">
+          <input id="searchText" type="text" class="form-control" name="searchText" placeholder="Search">
+          <span class="glyphicon glyphicon-search form-control-feedback"></span>
+        </div>
+      </div>
+    </div>
+    <div class="loadUsers">
+      <a class="nav-link" routerLink="/members"><span> Load Friends </span></a>
+    </div>
+     <!-- custom user card start-->
+     <!-- custom user card end -->
+     <!-- custom user card2 start -->
+<!-- 
+     <div class="row sideBar-body">
+      <div class="col-sm-3 col-xs-3 sideBar-avatar">
+        <div class="avatar-icon">
+          <img src="https://res.cloudinary.com/muhammederdem/image/upload/v1537638518/Ba%C5%9Fl%C4%B1ks%C4%B1z-1.jpg">
+        </div>
+      </div>
+      <div class="col-sm-9 col-xs-9 sideBar-main">
+        <div class="row">
+          <div class="col-sm-8 col-xs-8 sideBar-name">
+            <span class="name-meta">Ankit Jain
+          </span>
+          </div>
+          <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
+            <span class="time-meta pull-right">18:18
+          </span>
+          </div>
+        </div>
+      </div>
+    </div> -->
+   <div *ngFor="let item of members" class="card"> 
+     
+     <app-member [member]="item" ></app-member> 
+    </div>
+    
+     <!-- <app-list-member></app-list-member> -->
+     <!-- custom user card2 end -->
+
+    <mat-divider></mat-divider>
+      <h2 matSubheader>Pages</h2>
+      <a mat-list-item  routerLinkActive="router-link-active"  routerLink="/admin">DashBoard</a>
+      <a mat-list-item  routerLinkActive="router-link-active"  routerLink="/posts">Posts</a>
+      <a mat-list-item  routerLinkActive="router-link-active"  routerLink="/articles">Articles</a>
+      <mat-divider></mat-divider>
+          <h2 matSubheader>Tools</h2>
+          <a mat-list-item  routerLinkActive="router-link-active"  routerLinke="/contacts">
+            <mat-icon>import_contacts</mat-icon>
+            Contacts
+          </a>
+          <a mat-list-item  routerLinkActive="router-link-active"  routerLinke="/contacts">
+            <mat-icon>phone_number</mat-icon>
+            Phone Number
+          </a>
+      
+</mat-nav-list>

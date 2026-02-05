@@ -1,0 +1,114 @@
+
+.sideBar-body {
+    position: relative;
+    padding: 10px !important;
+    border-bottom: 1px solid #f7f7f7;
+    height: 72px;
+    margin: 0 !important;
+    cursor: pointer;
+  }
+  
+  .sideBar-body:hover {
+    background-color: #f2f2f2;
+  }
+  
+  .sideBar-avatar {
+    text-align: center;
+    padding: 0 !important;
+  }
+  
+  .avatar-icon img {
+    border-radius: 50%;
+    height: 49px;
+    width: 49px;
+  }
+  
+
+  .loadUsers a{
+    cursor: pointer;
+    position:relative;
+    display:inline-block;
+    padding:10px 30px;
+    text-decoration:none;
+    font-weight:500;
+    letter-spacing:2px;
+    color:#5a84a2;
+    font-size:18px;
+    border-radius:40px;
+    box-shadow: -2px -2px 8px rgba(255, 255, 255, 1), 
+                -2px -2px 12px rgba(255, 255, 255, 0.5), 
+          inset 2px 2px 4px rgba(255, 255, 255, 0.1), 
+           2px 2px 4px rgba(0, 0, 0, 0.1);
+
+  }
+  .loadUsers a:hover{
+    box-shadow: inset -2px 8px rgba(255, 255, 255, 1), 
+                inset -2px -2px 12px rgba(255, 255, 255, 0.5), 
+                inset 2px 2px 4px rgba(255, 255, 255, 0.1), 
+                inset 2px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  .loadUsers a:hover span{
+    display: inline-block;
+    transform: scale(0.98);
+  }
+ 
+
+  .chatlist{
+    position: relative;
+    height: calc(100%-101px);
+    overflow-y: auto;
+  }
+  .chatlist .block{
+   position: relative;
+   width: 100%;
+   display: flex;
+   align-items: center;
+   padding: 5px;
+  
+   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+   cursor: pointer;
+  }
+  .chatlist .block .imgbox{
+    position: center;
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  .chatlist .block .details{
+    position: relative;
+    width: 100%;
+   padding: 5px;
+  }
+  .chatlist .block .details .listHead{
+    display: flex;
+    justify-content: space-between;
+  }
+.chatlist .block .details .listHead h4{
+  font-size: 0.91em;
+  font-weight: 500;
+  color: #111;
+}
+.chatlist .block .details .listHead .time{
+  font-size: 0.75em;
+  color: #aaa;
+
+}
+.message_p{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.message_p p{
+  color:#aaa;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  font-size: 0.9em;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+  
+
+

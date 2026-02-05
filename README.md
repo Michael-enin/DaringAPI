@@ -1,1 +1,1 @@
-# Android-Multifunctional-Language-barrier-Resolver
+# Android-Multifunctional-Language-barrier-Resolver/DaringApp

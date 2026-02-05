@@ -1,0 +1,26 @@
+ 
+ <!-- <a class="nav-link text-white" routerLink="/members"> -->
+ 
+  <a [routerLink]="['/members/'+member.knownAs.toLowerCase()]" [queryParams] = "{tab: 3}">
+    <div class="chatlist">
+       <div class="block">
+        
+        <div class="imgbox">
+          <img src="{{customPhotoUrl}}" alt="" class="src">
+        </div>
+        <div class="details">
+          <div class="listHead">
+            <h4>{{member.knownAs}}</h4>
+            <p class="time">{{member.lastActive | date:'short'}}</p>
+          </div>
+          <div class="message_p">
+            <p>your Messages goesHere!</p>
+          </div>
+        </div>
+      </div>
+    
+    </div>
+  </a>
+     
+
+ 

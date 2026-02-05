@@ -1,0 +1,15 @@
+<h3>Admin DashBoard</h3>
+<div class="tab-panel">
+    <tabset class="member-tabset">
+        <tab heading="Manage User" *appHasRole='["Admin"]'>
+            <div class="container">
+                <app-manage-user></app-manage-user>
+            </div>
+        </tab>
+        <tab heading="Manage Photo" *appHasRole='["Admin", "Moderator"]'>
+            <div class="container">
+                <app-manage-photo></app-manage-photo>
+            </div>
+        </tab>
+    </tabset>
+</div>
